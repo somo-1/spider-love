@@ -1,0 +1,2639 @@
+
+/* =========================
+   إعدادات عامة
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #050505;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    overflow-x: hidden;
+
+    transition: opacity 0.8s ease;
+}
+
+
+/* =========================
+   صفحة البداية
+========================= */
+
+.start-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.08),
+            transparent 35%
+        ),
+        #050505;
+}
+
+
+/* الإضاءة خلف صفحة البداية */
+
+.start-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    filter: blur(100px);
+
+    animation:
+        startGlow 5s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   عنوان البداية
+========================= */
+
+.start-page h1 {
+    font-size: 50px;
+
+    letter-spacing: 6px;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 30px rgba(255, 255, 255, 0.12);
+
+    animation:
+        titleAppear 1.5s ease forwards;
+}
+
+
+/* النص أسفل العنوان */
+
+.start-page p {
+    color: #cccccc;
+
+    font-size: 17px;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        subtitleAppear 1.5s ease 0.4s both;
+}
+
+
+/* =========================
+   زر START
+========================= */
+
+#startButton {
+    padding: 15px 50px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.7);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    color: white;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    position: relative;
+
+    z-index: 2;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation:
+        buttonAppear 1.5s ease 0.8s both;
+}
+
+
+#startButton:hover {
+    background: white;
+
+    color: black;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+
+#startButton:active {
+    transform: scale(0.96);
+}
+
+
+#startButton:disabled {
+    cursor: default;
+}
+
+
+/* =========================
+   انتقال سينمائي
+========================= */
+
+.start-exit {
+    animation:
+        cinematicExit 1.2s ease forwards;
+}
+
+
+@keyframes cinematicExit {
+
+    0% {
+        opacity: 1;
+
+        transform: scale(1);
+
+        filter: blur(0);
+    }
+
+    60% {
+        opacity: 0.7;
+
+        transform: scale(1.05);
+
+        filter: blur(2px);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform: scale(1.15);
+
+        filter: blur(8px);
+    }
+
+}
+
+
+/* =========================
+   أنيميشن البداية
+========================= */
+
+@keyframes startGlow {
+
+    0% {
+        transform: scale(0.8);
+
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.2);
+
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(0.8);
+
+        opacity: 0.3;
+    }
+
+}
+
+
+@keyframes titleAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-25px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes subtitleAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   صفحة الحب
+========================= */
+
+.love-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   الإضاءة خلف الصورة
+========================= */
+
+.image-glow {
+    position: absolute;
+
+    top: 180px;
+
+    width: 450px;
+
+    height: 450px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    z-index: 0;
+
+    animation:
+        glowPulse 4s ease-in-out infinite;
+
+    transition:
+        transform 0.5s ease-out;
+}
+
+
+/* =========================
+   الصورة
+========================= */
+
+.love-image {
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+
+    display: block;
+
+    width: min(90%, 520px);
+
+    max-height: 65vh;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    position: relative;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transform:
+        translate(
+            var(--mouse-x),
+            var(--mouse-y)
+        )
+        scale(0.92);
+
+    animation:
+        imageShow 1.5s ease forwards;
+
+    box-shadow:
+        0 0 40px
+        rgba(255, 255, 255, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.love-image:hover {
+    filter:
+        brightness(1.05);
+
+    box-shadow:
+        0 0 50px
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* ظهور الصورة */
+
+@keyframes imageShow {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   حركة الإضاءة
+========================= */
+
+@keyframes glowPulse {
+
+    0% {
+        transform: scale(0.9);
+
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.15);
+
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(0.9);
+
+        opacity: 0.4;
+    }
+
+}
+
+
+/* =========================
+   كلام الحب الأول
+========================= */
+
+.love-text {
+    max-width: 750px;
+
+    width: 100%;
+
+    margin-top: 35px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    animation:
+        textShow 1.8s ease 1s forwards;
+}
+
+
+.love-text h1 {
+    font-size: 32px;
+
+    font-weight: 400;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 255, 255, 0.15),
+
+        0 0 25px
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.love-text p {
+    font-size: 27px;
+
+    font-weight: 500;
+
+    line-height: 1.8;
+
+    margin: 0;
+
+    color: #f5f5f5;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 255, 255, 0.18),
+
+        0 0 30px
+        rgba(255, 255, 255, 0.08);
+
+    animation:
+        messageGlow 3s ease-in-out infinite alternate;
+}
+
+
+/* ظهور النص */
+
+@keyframes textShow {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* توهج النص */
+
+@keyframes messageGlow {
+
+    from {
+        text-shadow:
+            0 0 8px
+            rgba(255, 255, 255, 0.12);
+    }
+
+    to {
+        text-shadow:
+            0 0 18px
+            rgba(255, 255, 255, 0.3),
+
+            0 0 35px
+            rgba(255, 255, 255, 0.1);
+    }
+
+}
+
+
+/* =========================
+   القلوب المتحركة
+========================= */
+
+.heart {
+    position: absolute;
+
+    bottom: -50px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(255, 255, 255, 0.25)
+        );
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+.heart-1 {
+    left: 10%;
+
+    font-size: 18px;
+
+    animation:
+        floatHeartOne 8s linear infinite;
+}
+
+
+.heart-2 {
+    left: 30%;
+
+    font-size: 26px;
+
+    animation:
+        floatHeartTwo 10s linear infinite;
+
+    animation-delay: 1.5s;
+}
+
+
+.heart-3 {
+    left: 55%;
+
+    font-size: 15px;
+
+    animation:
+        floatHeartThree 7s linear infinite;
+
+    animation-delay: 3s;
+}
+
+
+.heart-4 {
+    left: 80%;
+
+    font-size: 23px;
+
+    animation:
+        floatHeartFour 9s linear infinite;
+
+    animation-delay: 2s;
+}
+
+
+/* القلب الأول */
+
+@keyframes floatHeartOne {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.6)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    50% {
+        transform:
+            translate3d(35px, -50vh, 0)
+            scale(1)
+            rotate(15deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-20px, -110vh, 0)
+            scale(1.2)
+            rotate(-10deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* القلب الثاني */
+
+@keyframes floatHeartTwo {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.5)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.6;
+    }
+
+    50% {
+        transform:
+            translate3d(-45px, -55vh, 0)
+            scale(1.1)
+            rotate(-20deg);
+    }
+
+    100% {
+        transform:
+            translate3d(30px, -115vh, 0)
+            scale(1.3)
+            rotate(15deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* القلب الثالث */
+
+@keyframes floatHeartThree {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.5)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            translate3d(25px, -45vh, 0)
+            scale(1)
+            rotate(18deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-35px, -110vh, 0)
+            scale(1.2)
+            rotate(-15deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* القلب الرابع */
+
+@keyframes floatHeartFour {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.6)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    50% {
+        transform:
+            translate3d(-30px, -60vh, 0)
+            scale(1.1)
+            rotate(-15deg);
+    }
+
+    100% {
+        transform:
+            translate3d(40px, -115vh, 0)
+            scale(1.3)
+            rotate(20deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   الرسالة الثانية
+========================= */
+
+.second-message {
+    width: min(90%, 750px);
+
+    margin: 130px auto 100px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transform:
+        translateY(60px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* ظهور الرسالة عند النزول */
+
+.second-message.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* الخط فوق الرسالة */
+
+.message-line {
+    width: 80px;
+
+    height: 2px;
+
+    margin:
+        0 auto 30px;
+
+    background:
+        rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 255, 255, 0.4),
+
+        0 0 25px
+        rgba(255, 255, 255, 0.15);
+}
+
+
+/* عنوان الرسالة الثانية */
+
+.second-message h2 {
+    font-size: 28px;
+
+    font-weight: 400;
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 255, 255, 0.15),
+
+        0 0 25px
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* باقي الرسالة */
+
+.second-message p {
+    font-size: 24px;
+
+    line-height: 2;
+
+    color: #f5f5f5;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 255, 255, 0.18),
+
+        0 0 30px
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================
+   زر الموسيقى
+========================= */
+
+#musicButton {
+    position: fixed;
+
+    bottom: 25px;
+
+    right: 25px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.4);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.6);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+#musicButton:hover {
+    transform: scale(1.1);
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 255, 255, 0.15);
+}
+
+
+#musicButton:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   الموبايل
+========================= */
+
+@media (max-width: 600px) {
+
+    .start-page h1 {
+        font-size: 35px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .start-page p {
+        font-size: 15px;
+    }
+
+
+    #startButton {
+        padding: 13px 40px;
+
+        font-size: 16px;
+    }
+
+
+    .love-page {
+        padding:
+            50px 15px
+            80px;
+    }
+
+
+    .love-image {
+        width: 95%;
+
+        max-height: 60vh;
+
+        border-radius: 18px;
+    }
+
+
+    .love-text {
+        width: 95%;
+
+        margin-top: 25px;
+    }
+
+
+    .love-text h1 {
+        font-size: 23px;
+
+        line-height: 1.8;
+    }
+
+
+    .love-text p {
+        font-size: 21px;
+
+        line-height: 1.9;
+    }
+
+
+    .image-glow {
+        width: 300px;
+
+        height: 300px;
+
+        filter: blur(80px);
+
+        top: 150px;
+    }
+
+
+    .second-message {
+        width: 92%;
+
+        margin:
+            100px auto
+            70px;
+    }
+
+
+    .second-message h2 {
+        font-size: 22px;
+
+        line-height: 1.9;
+    }
+
+
+    .second-message p {
+        font-size: 19px;
+
+        line-height: 2;
+    }
+
+
+    .message-line {
+        width: 60px;
+
+        margin-bottom: 25px;
+    }
+
+
+    #musicButton {
+        width: 45px;
+
+        height: 45px;
+
+        bottom: 20px;
+
+        right: 20px;
+    }
+
+}
+
+
+/* =========================
+   شاشات صغيرة جدًا
+========================= */
+
+@media (max-width: 380px) {
+
+    .start-page h1 {
+        font-size: 29px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .love-text h1 {
+        font-size: 20px;
+    }
+
+
+    .love-text p {
+        font-size: 18px;
+    }
+
+
+    .second-message h2 {
+        font-size: 20px;
+    }
+
+
+    .second-message p {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================
+   القسم الثالث
+========================= */
+
+.third-message {
+    width: min(90%, 750px);
+
+    margin: 160px auto 120px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transform: translateY(70px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+/* ظهور القسم */
+
+.third-message.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* الخط */
+
+.third-line {
+    width: 70px;
+
+    height: 2px;
+
+    margin: 0 auto 35px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+
+/* العنوان */
+
+.third-message h2 {
+    font-size: 30px;
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+
+    line-height: 1.8;
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+
+/* النص */
+
+.third-message p {
+    font-size: 22px;
+
+    line-height: 2.1;
+
+    color: #f5f5f5;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.15),
+
+        0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+
+/* القلب */
+
+.third-heart {
+    margin-top: 35px;
+
+    font-size: 35px;
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    transition:
+        opacity 1s ease 0.8s,
+        transform 1s ease 0.8s;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255, 255, 255, 0.3)
+        );
+}
+
+
+/* ظهور القلب */
+
+.third-message.show .third-heart {
+    opacity: 1;
+
+    transform: scale(1);
+
+    animation:
+        heartBeat 1.8s ease-in-out infinite;
+}
+
+
+/* حركة القلب */
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =========================
+   الموبايل
+========================= */
+
+@media (max-width: 600px) {
+
+    .third-message {
+        width: 92%;
+
+        margin:
+            130px auto
+            90px;
+    }
+
+
+    .third-message h2 {
+        font-size: 24px;
+    }
+
+
+    .third-message p {
+        font-size: 19px;
+
+        line-height: 2;
+    }
+
+
+    .third-heart {
+        font-size: 30px;
+    }
+
+}
+
+/* =========================
+   تحسين التأثير السينمائي
+========================= */
+
+/* الرسالة الأولى */
+
+.love-text {
+    transition:
+        transform 1s ease,
+        opacity 1s ease;
+}
+
+
+/* الرسالة الثانية */
+
+.second-message {
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease,
+        filter 1.4s ease;
+
+    filter: blur(6px);
+}
+
+
+/* عند ظهور الرسالة الثانية */
+
+.second-message.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    filter: blur(0);
+}
+
+
+/* القسم الثالث */
+
+.third-message {
+    filter: blur(8px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease,
+        filter 1.5s ease;
+}
+
+
+/* عند ظهور القسم الثالث */
+
+.third-message.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    filter: blur(0);
+}
+
+
+/* الخطوط */
+
+.message-line,
+.third-line {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* لمعان يمر على الخط */
+
+.message-line::after,
+.third-line::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(255, 255, 255, 0.8);
+
+    transition:
+        left 1.2s ease;
+}
+
+
+/* تشغيل اللمعة */
+
+.second-message.show .message-line::after,
+.third-message.show .third-line::after {
+    left: 100%;
+}
+
+
+/* حركة خفيفة للنص */
+
+.second-message-text,
+.third-message p {
+    transition:
+        text-shadow 1s ease;
+}
+
+
+/* توهج عند الظهور */
+
+.second-message.show .second-message-text,
+.third-message.show p {
+    text-shadow:
+        0 0 12px
+        rgba(255, 255, 255, 0.25),
+
+        0 0 30px
+        rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================
+   تحسين الموبايل
+========================= */
+
+@media (max-width: 600px) {
+
+    .second-message {
+        filter: blur(4px);
+    }
+
+    .third-message {
+        filter: blur(5px);
+    }
+
+}
+/* =========================
+   زر المفاجأة
+========================= */
+
+#surpriseButton {
+    margin-top: 35px;
+
+    padding: 14px 35px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.5);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 1s ease 1s,
+        transform 1s ease 1s,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* ظهور الزر مع القسم الثالث */
+
+.third-message.show #surpriseButton {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* حركة الماوس */
+
+#surpriseButton:hover {
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 255, 255, 0.15);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* عند الضغط */
+
+#surpriseButton:active {
+    transform:
+        scale(0.95);
+}
+
+
+/* =========================
+   رسالة المفاجأة
+========================= */
+
+#surpriseMessage {
+    width: min(90%, 600px);
+
+    margin-top: 35px;
+
+    padding: 30px 25px;
+
+    border-radius: 20px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    transform:
+        translateY(30px)
+        scale(0.95);
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    box-shadow:
+        0 0 40px
+        rgba(255, 255, 255, 0.05);
+}
+
+
+/* ظهور المفاجأة */
+
+#surpriseMessage.show {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+
+/* القلب داخل الرسالة */
+
+#surpriseMessage span {
+    display: block;
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+    animation:
+        surpriseHeart 1.5s ease-in-out infinite;
+}
+
+
+/* النص */
+
+#surpriseMessage p {
+    margin: 0;
+
+    font-size: 20px;
+
+    line-height: 2;
+
+    color: #f5f5f5;
+
+    text-shadow:
+        0 0 12px
+        rgba(255, 255, 255, 0.15);
+}
+
+
+/* حركة القلب */
+
+@keyframes surpriseHeart {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.15);
+    }
+
+}
+
+
+/* =========================
+   الموبايل
+========================= */
+
+@media (max-width: 600px) {
+
+    #surpriseButton {
+        font-size: 15px;
+
+        padding:
+            12px 28px;
+    }
+
+
+    #surpriseMessage {
+        width: 92%;
+
+        padding:
+            25px 18px;
+    }
+
+
+    #surpriseMessage p {
+        font-size: 18px;
+
+        line-height: 1.9;
+    }
+
+}
+/* =========================
+   تأثير المفاجأة التفاعلي
+========================= */
+
+#surpriseMessage {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* إضاءة عند ظهور المفاجأة */
+
+#surpriseMessage::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    filter: blur(60px);
+
+    opacity: 0;
+
+    transition:
+        opacity 1.5s ease;
+}
+
+
+/* تشغيل الإضاءة */
+
+#surpriseMessage.show::before {
+    opacity: 1;
+}
+
+
+/* النص يظهر بعد القلب */
+
+#surpriseMessage.show p {
+    animation:
+        surpriseTextShow 1.2s ease forwards;
+}
+
+
+@keyframes surpriseTextShow {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   قلوب المفاجأة
+========================= */
+
+#surpriseMessage::after {
+    content: "❤️  ✨  ❤️";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 8px;
+
+    transform:
+        translateX(-50%)
+        scale(0.5);
+
+    white-space: nowrap;
+
+    font-size: 14px;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+/* ظهور القلوب */
+
+#surpriseMessage.show::after {
+    opacity: 0.8;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+}
+
+
+/* =========================
+   الزر بعد الضغط
+========================= */
+
+#surpriseButton {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+#surpriseButton.clicked {
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 255, 255, 0.2);
+
+    transform:
+        scale(1.05);
+}
+
+
+/* =========================
+   تأثير على القسم كله
+========================= */
+
+.third-message.celebrate {
+    animation:
+        celebrateSection 1.2s ease;
+}
+
+
+@keyframes celebrateSection {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(0)
+            scale(1.02);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+/* =========================
+   زر الموسيقى Premium
+========================= */
+
+#musicButton {
+    position: fixed;
+
+    bottom: 25px;
+
+    right: 25px;
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius: 30px;
+
+    background:
+        rgba(10, 10, 10, 0.65);
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+        width 0.4s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* أيقونة الموسيقى */
+
+.music-icon {
+    font-size: 25px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* الموجات */
+
+.music-bars {
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+
+    width: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        width 0.4s ease,
+        opacity 0.3s ease;
+}
+
+
+.music-bars span {
+    display: block;
+
+    width: 3px;
+
+    height: 10px;
+
+    border-radius: 5px;
+
+    background: white;
+
+    transform-origin: center;
+}
+
+
+/* عند تشغيل الموسيقى */
+
+#musicButton.playing {
+    width: 105px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 255, 255, 0.12);
+}
+
+
+#musicButton.playing .music-bars {
+    width: 35px;
+
+    opacity: 1;
+}
+
+
+#musicButton.playing .music-icon {
+    transform:
+        rotate(-8deg)
+        scale(1.05);
+}
+
+
+/* حركة الموجات */
+
+#musicButton.playing
+.music-bars span:nth-child(1) {
+    animation:
+        musicBar 0.8s ease-in-out infinite;
+}
+
+
+#musicButton.playing
+.music-bars span:nth-child(2) {
+    animation:
+        musicBar 0.6s ease-in-out infinite
+        0.1s;
+}
+
+
+#musicButton.playing
+.music-bars span:nth-child(3) {
+    animation:
+        musicBar 0.9s ease-in-out infinite
+        0.2s;
+}
+
+
+#musicButton.playing
+.music-bars span:nth-child(4) {
+    animation:
+        musicBar 0.7s ease-in-out infinite
+        0.15s;
+}
+
+
+@keyframes musicBar {
+
+    0%,
+    100% {
+        height: 7px;
+    }
+
+    50% {
+        height: 22px;
+    }
+
+}
+
+
+/* Hover */
+
+#musicButton:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 255, 255, 0.15);
+}
+
+
+/* ضغط الزر */
+
+#musicButton:active {
+    transform:
+        scale(0.94);
+}
+
+
+/* =========================
+   الموبايل
+========================= */
+
+@media (max-width: 600px) {
+
+    #musicButton {
+        width: 50px;
+
+        height: 50px;
+
+        bottom: 18px;
+
+        right: 18px;
+    }
+
+
+    #musicButton.playing {
+        width: 92px;
+    }
+
+
+    .music-icon {
+        font-size: 22px;
+    }
+
+}
+
+
+/* ============================= */
+/* STEP 6 - CINEMATIC BACKGROUND */
+/* ============================= */
+
+body {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255, 255, 255, 0.06),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.03),
+            transparent 30%
+        ),
+        #050505;
+
+    background-attachment: fixed;
+}
+
+/* طبقة إضاءة سينمائية */
+
+.love-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 255, 255, 0.035),
+            transparent 45%
+        );
+
+    z-index: 0;
+}
+
+/* نقاط الضوء */
+
+.love-page::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.15) 1px,
+            transparent 1px
+        );
+
+    background-size: 120px 120px;
+
+    opacity: 0.12;
+
+    animation: backgroundStars 18s linear infinite;
+
+    z-index: 0;
+}
+
+@keyframes backgroundStars {
+
+    from {
+        background-position:
+            0 0;
+    }
+
+    to {
+        background-position:
+            120px 120px;
+    }
+
+}
+
+/* نخلي المحتوى فوق الخلفية */
+
+.love-page > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* حركة خفيفة للصورة أثناء الظهور */
+
+.love-image {
+    animation:
+        cinematicImage 2s ease forwards;
+}
+
+@keyframes cinematicImage {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(1.08)
+            translateY(20px);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            scale(1)
+            translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+/* حركة هادئة للـ Glow */
+
+.image-glow {
+    animation:
+        glowBreathing 5s ease-in-out infinite;
+}
+
+@keyframes glowBreathing {
+
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+
+}
+
+/* القلوب تتحرك بشكل أهدى */
+
+.heart {
+    animation-duration: 7s;
+}
+
+/* تأثير عند النزول في الصفحة */
+
+.second-message,
+.third-message {
+    will-change:
+        transform,
+        opacity,
+        filter;
+}
+
+/* خط سينمائي أسفل الصفحة */
+
+.third-message::after {
+
+    content: "";
+
+    display: block;
+
+    width: 1px;
+    height: 90px;
+
+    margin: 70px auto 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    opacity: 0.5;
+
+}
+
+/* الموبايل */
+
+@media (max-width: 600px) {
+
+    .love-page::after {
+        background-size:
+            90px 90px;
+
+        opacity: 0.08;
+    }
+
+    .third-message::after {
+        height: 60px;
+        margin-top: 50px;
+    }
+
+}/* ================================= */
+/* STEP 7 - CINEMATIC PAGE TRANSITION */
+/* ================================= */
+
+
+/* محتوى صفحة البداية */
+
+.start-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* القلب */
+
+.start-heart {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+    opacity: 0;
+
+    animation:
+        startHeartReveal 1.2s ease forwards,
+        startHeartBeat 2s ease-in-out 1.2s infinite;
+
+}
+
+
+@keyframes startHeartReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            translateY(20px);
+
+        filter: blur(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+        filter: blur(0);
+
+    }
+
+}
+
+
+@keyframes startHeartBeat {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.12);
+
+    }
+
+}
+
+
+/* حركة خروج الصفحة */
+
+.start-exit {
+
+    animation:
+        startPageExit 1.2s ease forwards;
+
+}
+
+
+@keyframes startPageExit {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+        filter: blur(0);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(1.08);
+
+        filter: blur(10px);
+
+    }
+
+}
+
+
+/* طبقة الانتقال */
+
+#pageTransition {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #050505;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 0.8s ease,
+        transform 1.2s ease;
+
+}
+
+
+/* عند تشغيل الانتقال */
+
+#pageTransition.active {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+/* خط إضاءة في منتصف الانتقال */
+
+#pageTransition::after {
+
+    content: "❤️";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+
+    font-size: 35px;
+
+    opacity: 0;
+
+    animation:
+        transitionHeart 1.2s ease forwards;
+
+}
+
+
+#pageTransition.active::after {
+
+    opacity: 1;
+
+}
+
+
+@keyframes transitionHeart {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.5);
+
+    }
+
+    45% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.4);
+
+    }
+
+}
+
+
+/* الموبايل */
+
+@media (max-width: 600px) {
+
+    .start-heart {
+
+        font-size: 38px;
+
+    }
+
+    #pageTransition::after {
+
+        font-size: 30px;
+
+    }
+
+}/* ================================= */
+/* STEP 8 - CINEMATIC SCROLL INDICATOR */
+/* ================================= */
+
+#scrollIndicator {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 30px;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    z-index: 50;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        scrollIndicatorAppear 2s ease 3s forwards;
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+}
+
+
+/* كلمة SCROLL */
+
+#scrollIndicator span {
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* السهم */
+
+.scroll-arrow {
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    animation:
+        scrollArrowMove 1.6s ease-in-out infinite;
+
+}
+
+
+/* ظهور المؤشر */
+
+@keyframes scrollIndicatorAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 0.7;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
+    }
+
+}
+
+
+/* حركة السهم */
+
+@keyframes scrollArrowMove {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(8px);
+
+    }
+
+}
+
+
+/* الاختفاء عند النزول */
+
+#scrollIndicator.hide {
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(15px);
+
+}
+
+
+/* الموبايل */
+
+@media (max-width: 600px) {
+
+    #scrollIndicator {
+
+        bottom: 22px;
+
+    }
+
+}/* ============================= */
+/* WORD BY WORD ANIMATION */
+/* ============================= */
+
+.word {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform:
+        translateY(14px)
+        scale(0.96);
+
+    filter: blur(5px);
+
+    animation:
+        wordReveal 0.7s ease forwards;
+}
+
+
+@keyframes wordReveal {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(14px)
+            scale(0.96);
+
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+
+}

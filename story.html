@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Love ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ============================= -->
+    <!-- SCROLL INDICATOR -->
+    <!-- ============================= -->
+
+    <div id="scrollIndicator">
+
+        <span>SCROLL</span>
+
+        <div class="scroll-arrow">
+            ↓
+        </div>
+
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- LOVE PAGE -->
+    <!-- ============================= -->
+
+    <div class="love-page">
+
+
+        <!-- FLOATING HEARTS -->
+
+        <div class="heart heart-1">❤️</div>
+        <div class="heart heart-2">❤️</div>
+        <div class="heart heart-3">❤️</div>
+        <div class="heart heart-4">❤️</div>
+
+
+
+        <!-- IMAGE GLOW -->
+
+        <div class="image-glow"></div>
+
+
+
+        <!-- MAIN IMAGE -->
+
+        <img
+            src="./love.jpg"
+            class="love-image"
+            alt="Love"
+        >
+
+
+
+        <!-- ============================= -->
+        <!-- FIRST TEXT -->
+        <!-- ============================= -->
+
+        <div class="love-text">
+
+            <h1 id="loveTitle">
+                لَا يَهُمُّ كَمْ يَبْقَى لِي مِنْ عُمْرٍ،
+            </h1>
+
+            <p id="loveMessage">
+                الْمُهِمُّ أَنْ أَبْقَى مَعَكِ
+                العُمْرَ كُلَّهُ. ❤️
+            </p>
+
+        </div>
+
+
+
+        <!-- ============================= -->
+        <!-- SECOND TEXT -->
+        <!-- ============================= -->
+
+        <section class="second-message">
+
+            <div class="message-line"></div>
+
+            <p class="second-message-text">
+
+                أَمَّا بَعْدُ، فَلَنْ أُحِبَّ
+                أَحَدًا بَعْدَكَ،
+
+                <br>
+
+                أَمَّا قَبْلُ، فَأَنَا أَسَاسًا
+                لَمْ أَعْرِفِ الْحُبَّ
+                إِلَّا بِكَ. ❤️
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- THIRD TEXT -->
+        <!-- ============================= -->
+
+        <section class="third-message">
+
+            <div class="third-line"></div>
+
+            <h2 id="thirdTitle">
+                وَفِي النِّهَايَة...
+            </h2>
+
+            <p id="thirdText">
+
+                أَتَمَنَّى أَنْ أَبْقَى الشَّخْصَ
+                الَّذِي تَجِدِينَ مَعَهُ الأَمَانَ،
+
+                <br>
+
+                وَأَنْ تَبْقَى ضَحْكَتُكِ
+                أَجْمَلَ شَيْءٍ فِي أَيَّامِي. ❤️
+
+            </p>
+
+
+
+            <!-- HEART -->
+
+            <div class="third-heart">
+                ❤️
+            </div>
+
+
+
+            <!-- ============================= -->
+            <!-- SURPRISE BUTTON -->
+            <!-- ============================= -->
+
+            <button
+                id="surpriseButton"
+                type="button"
+            >
+
+                اضغطي هنا ❤️
+
+            </button>
+
+
+
+            <!-- ============================= -->
+            <!-- SURPRISE MESSAGE -->
+            <!-- ============================= -->
+
+            <div id="surpriseMessage">
+
+                <span>
+                    ❤️
+                </span>
+
+                <p id="surpriseText">
+                    أُحِبُّكِ ❤️
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- MUSIC BUTTON -->
+    <!-- ============================= -->
+
+    <button
+        id="musicButton"
+        type="button"
+        aria-label="تشغيل الموسيقى"
+    >
+
+        <span class="music-icon">
+            ♪
+        </span>
+
+        <span class="music-bars">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </span>
+
+    </button>
+
+
+
+    <!-- ============================= -->
+    <!-- MUSIC -->
+    <!-- ============================= -->
+
+    <audio
+        id="music"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="./music.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script>
+
+
+        /* ================================= */
+        /* MUSIC */
+        /* ================================= */
+
+        const music =
+            document.getElementById("music");
+
+        const musicButton =
+            document.getElementById("musicButton");
+
+
+        /*
+         * مستوى الصوت
+         */
+
+        music.volume = 0.5;
+
+
+
+        /*
+         * تشغيل الموسيقى فور تحميل الصفحة
+         */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                music.play()
+                    .then(function () {
+
+                        musicButton.classList.add(
+                            "playing"
+                        );
+
+                    })
+                    .catch(function () {
+
+                        /*
+                         * Chrome قد يمنع
+                         * التشغيل التلقائي.
+                         *
+                         * سيتم التشغيل عند
+                         * أول ضغطة.
+                         */
+
+                    });
+
+            }
+        );
+
+
+
+        /*
+         * تشغيل الموسيقى عند أول تفاعل
+         */
+
+        function startMusicOnInteraction() {
+
+            if (music.paused) {
+
+                music.play()
+                    .then(function () {
+
+                        musicButton.classList.add(
+                            "playing"
+                        );
+
+                    })
+                    .catch(function () {});
+
+            }
+
+        }
+
+
+        document.addEventListener(
+            "click",
+            startMusicOnInteraction,
+            {
+                once: true
+            }
+        );
+
+
+
+        /*
+         * زر الموسيقى
+         */
+
+        musicButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+
+                if (music.paused) {
+
+                    music.play()
+                        .then(function () {
+
+                            musicButton.classList.add(
+                                "playing"
+                            );
+
+                        })
+                        .catch(function () {});
+
+                }
+
+                else {
+
+                    music.pause();
+
+                    musicButton.classList.remove(
+                        "playing"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* ================================= */
+        /* TYPEWRITER */
+        /* ================================= */
+
+        function typeText(
+            element,
+            speed,
+            callback
+        ) {
+
+            if (!element) {
+                return;
+            }
+
+
+            const text =
+                element.textContent
+                    .replace(/\s+/g, " ")
+                    .trim();
+
+
+            element.textContent = "";
+
+
+            let index = 0;
+
+
+            function write() {
+
+                if (
+                    index < text.length
+                ) {
+
+                    element.textContent +=
+                        text[index];
+
+                    index++;
+
+
+                    setTimeout(
+                        write,
+                        speed
+                    );
+
+                }
+
+                else {
+
+                    if (callback) {
+
+                        callback();
+
+                    }
+
+                }
+
+            }
+
+
+            write();
+
+        }
+
+
+
+        /* ================================= */
+        /* FIRST TEXT */
+        /* ================================= */
+
+        const loveTitle =
+            document.getElementById(
+                "loveTitle"
+            );
+
+
+        const loveMessage =
+            document.getElementById(
+                "loveMessage"
+            );
+
+
+        setTimeout(
+            function () {
+
+
+                /*
+                 * النص الأول
+                 */
+
+                typeText(
+                    loveTitle,
+                    80,
+                    function () {
+
+
+                        /*
+                         * بعد انتهاء النص الأول
+                         */
+
+                        setTimeout(
+                            function () {
+
+                                typeText(
+                                    loveMessage,
+                                    70
+                                );
+
+                            },
+                            500
+                        );
+
+                    }
+                );
+
+
+            },
+            1800
+        );
+
+
+
+        /* ================================= */
+        /* IMAGE MOVEMENT */
+        /* ================================= */
+
+        const loveImage =
+            document.querySelector(
+                ".love-image"
+            );
+
+
+        const imageGlow =
+            document.querySelector(
+                ".image-glow"
+            );
+
+
+        document.addEventListener(
+            "mousemove",
+            function (event) {
+
+
+                const x =
+                    (
+                        event.clientX /
+                        window.innerWidth
+                    ) - 0.5;
+
+
+                const y =
+                    (
+                        event.clientY /
+                        window.innerHeight
+                    ) - 0.5;
+
+
+                const moveX =
+                    x * 12;
+
+
+                const moveY =
+                    y * 12;
+
+
+                loveImage.style.setProperty(
+                    "--mouse-x",
+                    `${moveX}px`
+                );
+
+
+                loveImage.style.setProperty(
+                    "--mouse-y",
+                    `${moveY}px`
+                );
+
+
+                imageGlow.style.transform =
+                    `translate(
+                        ${x * 30}px,
+                        ${y * 30}px
+                    )`;
+
+            }
+        );
+
+
+
+        /* ================================= */
+        /* MOBILE */
+        /* ================================= */
+
+        if (
+            window.matchMedia(
+                "(pointer: coarse)"
+            ).matches
+        ) {
+
+            loveImage.style.setProperty(
+                "--mouse-x",
+                "0px"
+            );
+
+            loveImage.style.setProperty(
+                "--mouse-y",
+                "0px"
+            );
+
+        }
+
+
+
+        /* ================================= */
+        /* SECOND MESSAGE */
+        /* ================================= */
+
+        const secondMessage =
+            document.querySelector(
+                ".second-message"
+            );
+
+
+        const secondText =
+            document.querySelector(
+                ".second-message-text"
+            );
+
+
+        let secondStarted =
+            false;
+
+
+        function checkSecondMessage() {
+
+
+            const position =
+                secondMessage.getBoundingClientRect();
+
+
+            if (
+                position.top <
+                window.innerHeight * 0.85
+                &&
+                !secondStarted
+            ) {
+
+
+                secondStarted =
+                    true;
+
+
+                secondMessage.classList.add(
+                    "show"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        typeText(
+                            secondText,
+                            70
+                        );
+
+                    },
+                    700
+                );
+
+            }
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            checkSecondMessage
+        );
+
+
+        checkSecondMessage();
+
+
+
+        /* ================================= */
+        /* THIRD MESSAGE */
+        /* ================================= */
+
+        const thirdMessage =
+            document.querySelector(
+                ".third-message"
+            );
+
+
+        const thirdTitle =
+            document.getElementById(
+                "thirdTitle"
+            );
+
+
+        const thirdText =
+            document.getElementById(
+                "thirdText"
+            );
+
+
+        let thirdStarted =
+            false;
+
+
+        function checkThirdMessage() {
+
+
+            const position =
+                thirdMessage.getBoundingClientRect();
+
+
+            if (
+                position.top <
+                window.innerHeight * 0.85
+                &&
+                !thirdStarted
+            ) {
+
+
+                thirdStarted =
+                    true;
+
+
+                thirdMessage.classList.add(
+                    "show"
+                );
+
+
+                /*
+                 * عنوان النهاية
+                 */
+
+                setTimeout(
+                    function () {
+
+                        typeText(
+                            thirdTitle,
+                            90,
+                            function () {
+
+
+                                /*
+                                 * النص الأخير
+                                 */
+
+                                setTimeout(
+                                    function () {
+
+                                        typeText(
+                                            thirdText,
+                                            65
+                                        );
+
+                                    },
+                                    500
+                                );
+
+                            }
+                        );
+
+                    },
+                    700
+                );
+
+            }
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            checkThirdMessage
+        );
+
+
+        checkThirdMessage();
+
+
+
+        /* ================================= */
+        /* SURPRISE */
+        /* ================================= */
+
+        const surpriseButton =
+            document.getElementById(
+                "surpriseButton"
+            );
+
+
+        const surpriseMessage =
+            document.getElementById(
+                "surpriseMessage"
+            );
+
+
+        const surpriseText =
+            document.getElementById(
+                "surpriseText"
+            );
+
+
+        let surpriseStarted =
+            false;
+
+
+        surpriseButton.addEventListener(
+            "click",
+            function () {
+
+
+                if (
+                    surpriseStarted
+                ) {
+
+                    return;
+
+                }
+
+
+                surpriseStarted =
+                    true;
+
+
+                surpriseMessage.classList.add(
+                    "show"
+                );
+
+
+                surpriseButton.classList.add(
+                    "clicked"
+                );
+
+
+                thirdMessage.classList.add(
+                    "celebrate"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        typeText(
+                            surpriseText,
+                            180
+                        );
+
+                    },
+                    400
+                );
+
+
+                surpriseButton.textContent =
+                    "❤️";
+
+            }
+        );
+
+
+
+        /* ================================= */
+        /* SCROLL INDICATOR */
+        /* ================================= */
+
+        const scrollIndicator =
+            document.getElementById(
+                "scrollIndicator"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+
+                if (
+                    window.scrollY > 40
+                ) {
+
+                    scrollIndicator.classList.add(
+                        "hide"
+                    );
+
+                }
+
+                else {
+
+                    scrollIndicator.classList.remove(
+                        "hide"
+                    );
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

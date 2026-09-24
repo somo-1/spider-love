@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="start-page" id="startPage">
+
+        <div class="start-content">
+
+            <div class="start-heart">
+                ❤️
+            </div>
+
+            <h1>SPIDER LOVE</h1>
+
+            <p>
+                قصة بدأت بضغطة واحدة ❤️
+            </p>
+
+            <button id="startButton" type="button">
+                START
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- طبقة الانتقال -->
+
+    <div id="pageTransition"></div>
+
+
+    <script>
+
+        const startButton =
+            document.getElementById("startButton");
+
+        const startPage =
+            document.getElementById("startPage");
+
+        const pageTransition =
+            document.getElementById("pageTransition");
+
+
+        startButton.addEventListener(
+            "click",
+            function () {
+
+                startButton.disabled = true;
+
+                /* حركة صفحة البداية */
+
+                startPage.classList.add(
+                    "start-exit"
+                );
+
+                /* تشغيل الانتقال */
+
+                pageTransition.classList.add(
+                    "active"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "story.html";
+
+                    },
+                    1200
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
